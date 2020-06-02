@@ -1,0 +1,69 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=3cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{fancyhdr}
+\usepackage{seminar}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+
+
+%You can add theorem-like environments (e.g. remark, definition, ...) if you want
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Def.}
+\newtheorem{proposition}{Proposition}
+
+\title{Convolutional Wasserstein Distances Report} % Replace with your title
+\author{Nurlanov Zhakshylyk} % Replace with your name
+\institute{Informatics - Technische Universit\"{a}t M\"{u}nchen} % Replace with the department you belong to
+
+\makeatletter
+\let\runauthor\@author
+\let\runtitle\@title
+\makeatother
+\lhead{\runauthor}
+\rhead{\runtitle}
+
+
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+Convolutional Wasserstein Distance (CWD) is the approximation of Wasserstein Distance - the measure between probability distributions taking into account the in-domain distance. The method was proposed by Justin Solomon, Fernando de Goes, Gabriel Peyre, Marco Cuturi, Adrian Butscher, Andy Nguyen, Tao Du, Leonidas Guibas in 2015. Unlike traditional methods for optimal transportation, such as Linear Programming, the resulting method CWD can be applied on large domains used in graphics, such as images and triangle meshes, improving performance by orders of magnitude. For this, the authors used entropic regularization of the optimal transportation problem, and the heat kernel approximation of the kernel-based geodesic distances. The generalisability and efficiency of the proposed approach were shown on tasks including optimization over distances, such as Shape Interpolation, Wasserstein Barycenters, and Propagation. 
+
+\end{abstract}
+
+\section{Introduction}
+\label{intro}
+The probability distributions are widely used in Computer Graphics for different tasks. For example, manipulating images by histogram matching, relaxation of correspondence maps, shapes interpolation, and more. Whenever some geometrical feature can be described by a non-negative integrable function defined on geometrical domain, the necessity for the ability to manipulate distributions arises.
+
+For this aim, we will introduce Wasserstein Distance, discuss its advantages compared to other ways of measuring the distance between distributions, and quickly go through the previous approaches in the \hyperref[intro]{Introductory part}. Then in the \hyperref[main]{Main part} we will present the efficient approach of computing approximated Wasserstein Distance, called Convolutional Wasserstein Distance, by using entropy regularization of optimal transportation problem, and approximating kernel-based geodesic distances by convolution against heat kernel. The resulting method leads to simple iterative numerical schemes with linear convergence, in which each iteration only requires Gaussian convolution or the solution
+of a sparse, pre-factored linear system, i.e. the heat equation. In this part we will also describe the ways of solving problems involving optimization over Wasserstein Distances, and show the commonality of algorithms. In Experimental part we will compare timings of our final solution with baseline approach (LP), and the previous solution \cite{SinkhornDistances}, which is the intermediate step of our method. Also there are applications of resulted method presented in this section. And at the end, we will conclude the work, and discuss the drawbacks of proposed solution.
+
+
+\section{Main approach}
+\label{main}
+
+
+
+\section{Experiments}
+
+\section{Conclusion}
+
+	
+\bibliographystyle{plain}
+\bibliography{egbib}
+
+
+
+\end{document}
